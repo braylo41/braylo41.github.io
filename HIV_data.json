@@ -1,0 +1,328 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "description": "Scatter plot showing new HIV infections rate per 100k people and rate of PrEP usage per 100K people from the time it was approved in 2012",
+  "width": 550,
+  "height": 480,
+  "padding": 0,
+  "data": [
+    {
+      "name": "HIV_data",
+      "url": "data/HIV_infection_rate.csv",
+      "format": {
+        "type": "csv",
+        "New Diagnoses National Rate": "number",
+        "year": "date"
+      }
+    },
+    {
+      "name": "PrEP_data",
+      "url": "data/Prep_data.csv",
+      "format": {
+        "type": "csv",
+        "National PrEP Rate": "number",
+        "year": "date"
+      }
+    },
+    {
+      "name": "HIV_age",
+      "url": "data/Histogram_data.csv",
+
+      "format": {
+        "type": "csv",
+        "Class": "string",
+        "2008": "number",
+        "2009": "number",
+        "2010": "number",
+        "2011": "number",
+        "2012": "number",
+        "2013": "number",
+        "2014": "number",
+        "2015": "number",
+        "2016": "number",
+        "2017": "number",
+        "2018": "number"
+      }
+    }
+  ],
+
+
+  "signals": [
+    {
+      "name": "year_var",
+      "value": 2018,
+      "on": [
+        {
+          "events": "symbol:mouseover!",
+          "update": "round((x()/55) + 2008)"
+        }
+      ]
+    }
+  ],
+
+  "axes": [
+    {
+      "scale": "xHIV",
+      "grid": true,
+      "orient": "bottom",
+      "title": "Year"
+    },
+    {
+      "scale": "yHIV",
+      "grid": true,
+      "orient": "left",
+      "title": "New Diagnoses National Rate",
+      "domainColor": {
+        "value": "red"
+      },
+      "tickColor": {
+        "value": "red"
+      },
+      "labelColor": {
+        "value": "red"
+      },
+      "titleColor": {
+        "value": "red"
+      }
+    },
+    {
+      "scale": "xPrEP",
+      "grid": true,
+      "orient": "bottom",
+      "title": "Year"
+    },
+    {
+      "scale": "yPrEP",
+      "grid": true,
+      "orient": "right",
+      "title": "National PrEP Rate",
+      "domainColor": {
+        "value": "blue"
+      },
+      "tickColor": {
+        "value": "blue"
+      },
+      "labelColor": {
+        "value": "blue"
+      },
+      "titleColor": {
+        "value": "blue"
+      }
+    }
+  ],
+
+
+  "scales": [
+    {
+      "name": "xHIV",
+      "type": "point",
+      "domain": {
+        "data": "HIV_data",
+        "field": "Year"
+      },
+      "range": "width"
+    },
+    {
+      "name": "xPrEP",
+      "type": "point",
+      "domain": {
+        "data": "HIV_data",
+        "field": "Year"
+      },
+      "range": "width"
+    },
+    {
+      "name": "yHIV",
+      "type": "linear",
+      "range": "height",
+      "domain": {
+        "data": "PrEP_data",
+        "field": "National PrEP Rate"
+      },
+      "nice": true,
+      "zero": true
+    },
+    {
+      "name": "yPrEP",
+      "type": "linear",
+      "range": "height",
+      "domain": {
+        "data": "PrEP_data",
+        "field": "National PrEP Rate"
+      },
+      "nice": true,
+      "zero": true
+    }
+  ],
+
+"marks": [
+  {
+    "type": "group",
+    "name": "All",
+    "layout": {
+      "align": "each",
+      "padding": 80
+    },
+
+
+    "marks": [
+    {
+      "type": "group",
+      "name": "ScatterPlot",
+
+      "marks": [
+        {
+              "name": "HIV",
+              "type": "symbol",
+              "from": {
+                "data": "HIV_data"
+              },
+
+
+
+              "encode": {
+                "enter": {
+                  "x": {
+                    "scale": "xHIV",
+                    "field": "Year"
+                  },
+                  "y": {
+                    "scale": "yHIV",
+                    "field": "New Diagnoses National Rate"
+                  },
+                  "size": {
+                    "value": 10
+                  },
+                  "shape": {
+                    "value": "circle"
+                  },
+                  "strokeWidth": {
+                    "value": 2
+                  },
+                  "opacity": {
+                    "value": 0.99
+                  },
+                  "stroke": {
+                    "value": "red"
+                  },
+                  "fill": {
+                    "color": "red"
+                  }
+                }
+              }
+            },
+        {
+          "name": "PrEP",
+          "type": "symbol",
+          "from": {
+            "data": "HIV_data"
+          },
+
+
+
+          "encode": {
+            "enter": {
+              "x": {
+                "scale": "xPrEP",
+                "field": "Year"
+              },
+              "y": {
+                "scale": "yPrEP",
+                "field": "National PrEP Rate"
+              },
+              "size": {
+                "value": 10
+              },
+              "shape": {
+                "value": "circle"
+              },
+              "strokeWidth": {
+                "value": 2
+              },
+              "opacity": {
+                "value": 0.99
+              },
+              "stroke": {
+                "value": "blue"
+              },
+              "fill": {
+                "color": "red"
+              }
+            }
+          }
+        }
+      ]
+    },
+      {
+        "type": "group",
+        "name": "histogram",
+        "scales": [
+          {
+            "name": "Age_group",
+            "type": "band",
+            "range": "width",
+            "domain": {
+              "data": "HIV_age",
+              "field": "Class"
+            },
+            "padding": 0.05,
+            "round": true
+          },
+          {
+            "name": "case_number",
+            "type": "linear",
+            "range": "height",
+            "domain": [0, 15000],
+            "zero": true,
+            "padding": 0.5
+          }
+        ],
+        "axes": [
+          {
+            "scale": "Age_group",
+            "orient": "bottom",
+            "title": "Age groups"
+          },
+          {
+            "scale": "case_number",
+            "orient": "left",
+            "title": "Number of people newly infected"
+          }
+        ],
+        "marks": [
+          {
+            "type": "rect",
+            "name": "Histogram",
+            "from": {
+              "data": "HIV_age"
+            },
+
+            "encode": {
+              "update": {
+                "x": {
+                  "scale": "Age_group",
+                  "field": "Class"
+                },
+                "width": {"scale": "Age_group", "band": 1},
+                "y": {
+                  "scale": "case_number",
+                  "field": {
+                    "signal": "year_var"
+                  }
+                },
+                "y2": {"scale": "case_number", "value": 0},
+                "fill": {"value": "red"}
+              }
+            }
+          }
+        ]
+      }
+  ]
+    }
+
+
+      ]
+    }
+
+
+
+
