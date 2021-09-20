@@ -70,7 +70,7 @@
       "scale": "yHIV",
       "grid": true,
       "orient": "left",
-      "title": "New Diagnoses National Rate",
+      "title": "New Diagnoses National Rate per 100K people",
       "domainColor": {
         "value": "red"
       },
@@ -94,7 +94,7 @@
       "scale": "yPrEP",
       "grid": true,
       "orient": "right",
-      "title": "National PrEP Rate",
+      "title": "National PrEP Rate per 100K people",
       "domainColor": {
         "value": "blue"
       },
