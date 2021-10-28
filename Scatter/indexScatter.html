@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@5"></script>
+
+<body>
+<center>
+<p>HIV infection scatter plot</p>
+</center>
+<div id="vis"></div>
+<center>
+<p>Hypothesis: The approval of PrEP for the prevention of HIV in 2012, has causes a decrease in the rate of HIV infection in the United States.</p>
+
+<p>Please find the links to my sources below. P.S These graphs are interactive. Mouse over the dots on the left graph to change the year on the histogram.</p>
+<a href="https://aidsvu.org/resources/#/datasets">AIDSvu</a>
+<p></p>
+<a href="https://www.kff.org/other/state-indicator/distribution-by-age/?dataView=1&currentTimeframe=5&sortModel=%7B%22colId%22:%22Location%22,%22sort%22:%22asc%22%7D">KFF Population data</a>
+<p></p>
+<a href="https://github.com/braylo41/braylo41.github.io/tree/main/data">Or more simply here is the CSV file I compiled</a>
+</center>
+<script>
+    const spec = "HIV_data.json";
+    vegaEmbed("#vis", spec)
+        // result.view provides access to the Vega View API
+        .then(result => console.log(result))
+        .catch(console.warn);
+
+</script>
+
+</body>
+

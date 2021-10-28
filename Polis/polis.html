@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+    <title>Polis Plot</title>
+</head>
+<body>
+<center>
+    <h5>Hypothesis: Poleis with lower intramural area generally saw more staseis than others with more intramural area. This suggests that higher population density is related to increased number of staseis.</h5>
+</center>
+
+
+</body>
+<!--- Observe there are data collected from
+# https://github.com/simonepri/geo-maps
+# presented in this assignment. --->
+
+<div id="polis_geographic"></div>
+<script>
+    const spec_polis = "polis_dual.vg.json";
+    vegaEmbed("#polis_geographic", spec_polis)
+        .then(result => console.log(result))
+        .catch(console.warn);
+
+</script>
+
+</html>
