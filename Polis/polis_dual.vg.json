@@ -158,7 +158,8 @@
         "data": "pulldown",
         "field": "area"
       },
-      "range": [2, 8]
+      "zero": false,
+      "range": [2, 300]
     },
     {
       "name": "color2",
@@ -310,7 +311,7 @@
             {
               "type": "geoshape",
               "projection": "projection",
-              "pointRadius": {"expr": "scale('area_size', datum.properties[area_signal])"}
+              "pointRadius": {"expr": "scale('area_size', sqrt(datum.properties[area_signal]/3.14))"}
 
             }
           ]
@@ -408,9 +409,7 @@
   ],
   "legends": [
     {
-      "title": {
-        "signal": "ColorAs"
-      },
+      "title": "Number of stasis events",
       "fill": "color2",
       "orient": "bottom",
       "offset": 5,
@@ -423,22 +422,21 @@
       "direction": "horizontal"
     },
     {
-      "title": {
-        "signal": "area_signal"
-      },
-      "strokeWidth": "area_size",
+      "title": "Area controlled, in Hectares",
+      "size": "area_size",
       "orient": "bottom",
       "offset": 5,
       "type": "symbol",
+      "symbolFillColor": "black",
 
-      "symbolType": "circle",
-      "titlePadding": 10,
+
+      "symbolStrokeWidth": 1,
+      "titlePadding": 15,
       "titleOrient": "left",
       "titleAnchor": "end",
       "direction": "horizontal",
-      "symbolFillColor": "blue",
-      "symbolStrokeColor": null,
-      "opacity": 0
+      "tickCount": 6,
+      "tickMinStep": 100
     }
   ],
   "config": {
