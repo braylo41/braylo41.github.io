@@ -1,0 +1,861 @@
+{"$schema": "https://vega.github.io/schema/vega/v5.json",
+  "background": "#f2f1ed",
+  "autosize": "none",
+  "width": 1200,
+  "height": 560,
+  "padding": {"top": 25, "left": 0, "right": 45, "bottom": 25},
+  "data": [
+    {
+      "name": "maladies",
+      "values": [
+        {
+          "illness": "UTI",
+          "symptoms": [
+            "Pain during urination",
+            "Frequent Urination",
+            "Side or Back pain"
+          ],
+          "rank": 1,
+          "x": 133.3,
+          "y": 372
+        },
+        {
+          "illness": "Common Cold",
+          "symptoms": [
+            "Runny/stuffy nose",
+            "Sore throat",
+            "Fever",
+            "Body aches",
+            "Fatigue"
+          ],
+          "rank": 2,
+          "y": 372,
+          "x": 266.6
+        },
+        {
+          "illness": "Common Allergies",
+          "symptoms": [
+            "Runny/stuffy nose",
+            "Watery eyes",
+            "Shortness of breath"
+          ],
+          "rank": 3,
+          "y": 372,
+          "x": 400
+        },
+        {
+          "illness": "Flu",
+          "symptoms": [
+            "Fever",
+            "Runny/stuffy nose",
+            "Sore throat",
+            "vomiting",
+            "Nausea",
+            "Body aches",
+            "Fatigue"
+          ],
+          "rank": 4,
+          "y": 372,
+          "x": 533.3
+        },
+        {
+          "illness": "Food borne illness",
+          "symptoms": [
+            "Vomiting",
+            "Diarrhea",
+            "Body aches",
+            "Nausea"
+          ],
+          "rank": 5,
+          "y": 372,
+          "x": 666.6
+        },
+        {
+          "illness": "Ear Infection",
+          "symptoms": [
+            "Ear pain",
+            "Fever",
+            "Trouble hearing",
+            "Fatigue"
+          ],
+          "rank": 6,
+          "y": 372,
+          "x": 800
+        },
+        {
+          "illness": "Asthma",
+          "symptoms": [
+            "Shortness of breath",
+            "Wheezing",
+            "Chest tightness"
+          ],
+          "rank": 7,
+          "y": 372,
+          "x": 933.3
+        },
+        {
+          "illness": "Migraine",
+          "symptoms": [
+            "Throbbing head ache",
+            "Nausea",
+            "Sensitivity to light",
+            "Changes to vision"
+          ],
+          "rank": 8,
+          "y": 372,
+          "x": 1066.6
+        },
+        {
+          "illness": "Sinus Infection",
+          "symptoms": [
+            "Runny/stuffy nose",
+            "Fatigue",
+            "Fever"
+          ],
+          "rank": 9,
+          "y": 372,
+          "x": 1200
+        }
+      ],
+      "transform": [{
+        "type": "voronoi", "x": "x", "y": "y"
+      }]
+    },
+    {
+      "name": "symptoms",
+      "values": [
+        {
+          "symptom": "Vomiting",
+          "illness": [
+            "Food borne illness",
+            "Flu"
+          ],
+          "rank": 1,
+          "y": 186,
+          "x": 60
+        },
+        {
+          "symptom": "Fever",
+          "illness": [
+            "Common Cold",
+            "Flu",
+            "Ear infection",
+            "Sinus Infection"
+          ],
+          "rank": 2,
+          "y": 186,
+          "x": 120
+        },
+        {
+          "symptom": "Nausea",
+          "illness": [
+            "Migraine",
+            "Flu",
+            "Food borne illness"
+          ],
+          "rank": 3,
+          "y": 186,
+          "x": 180
+        },
+        {
+          "symptom": "Fatigue",
+          "illness": [
+            "Common Cold",
+            "Flu",
+            "Ear infection",
+            "Sinus Infection"
+          ],
+          "rank": 4,
+          "y": 186,
+          "x": 240
+        },
+        {
+          "symptom": "Runny/stuffy nose",
+          "illness": [
+            "Sinus Infection",
+            "Flu",
+            "Common Allergies",
+            "Common Cold"
+          ],
+          "rank": 5,
+          "y": 186,
+          "x": 300
+        },
+        {
+          "symptom": "Body aches",
+          "illness": [
+            "Food borne illness",
+            "Flu",
+            "Common Cold"
+          ],
+          "rank": 6,
+          "y": 186,
+          "x": 360
+        },
+        {
+          "symptom": "Shortness of breath",
+          "illness": [
+            "Asthma",
+            "Common Allergies"
+          ],
+          "rank": 7,
+          "y": 186,
+          "x": 420
+        },
+        {
+          "symptom": "Wheezing",
+          "illness": [
+            "Asthma",
+            "Common Allergies"
+          ],
+          "rank": 8,
+          "y": 186,
+          "x": 480
+        },
+        {
+          "symptom": "Sensitivity to light",
+          "illness": [
+            "Migraine"
+          ],
+          "rank": 9,
+          "y": 186,
+          "x": 540
+        },
+        {
+          "symptom": "Throbbing head ache",
+          "illness": [
+            "Migraine"
+          ],
+          "rank": 10,
+          "y": 186,
+          "x": 600
+        },
+        {
+          "symptom": "Chest tightness",
+          "illness": [
+            "Asthma"
+          ],
+          "rank": 11,
+          "y": 186,
+          "x": 660
+        },
+        {
+          "symptom": "Trouble hearing",
+          "illness": [
+            "Ear Infection"
+          ],
+          "rank": 12,
+          "y": 186,
+          "x": 720
+        },
+        {
+          "symptom": "Ear pain",
+          "illness": [
+            "Ear Infection"
+          ],
+          "rank": 13,
+          "y": 186,
+          "x": 780
+        },
+        {
+          "symptom": "Diarrhea",
+          "illness": [
+            "Food borne illness"
+          ],
+          "rank": 14,
+          "y": 186,
+          "x": 840
+        },
+        {
+          "symptom": "Sore throat",
+          "illness": [
+            "Common Cold",
+            "Flu"
+          ],
+          "rank": 15,
+          "y": 186,
+          "x": 900
+        },
+        {
+          "symptom": "Watery eyes",
+          "illness": [
+            "Common Allergies"
+          ],
+          "rank": 16,
+          "y": 186,
+          "x": 960
+        },
+        {
+          "symptom": "Side or Back pain",
+          "illness": [
+            "UTI"
+          ],
+          "rank": 17,
+          "y": 186,
+          "x": 1020
+        },
+        {
+          "symptom": "Frequent Urination",
+          "illness": [
+            "UTI"
+          ],
+          "rank": 18,
+          "y": 186,
+          "x": 1080
+        },
+        {
+          "symptom": "Pain during urination",
+          "illness": [
+            "UTI"
+          ],
+          "rank": 19,
+          "y": 186,
+          "x": 1140
+        },
+        {
+          "symptom": "Changes to vision",
+          "illness": [
+            "Migraine"
+          ],
+          "rank": 20,
+          "y": 186,
+          "x": 1200
+        }
+      ],
+      "transform": [{
+        "type": "voronoi", "x": "x", "y": "y"
+      }]
+    },
+    
+    
+    
+    {
+      "name": "joined",
+      "values": [
+        {
+          "name": "UTI",
+          "thing": [
+            "Pain during urination",
+            "Frequent Urination",
+            "Side or Back pain"
+          ],
+          "rank": 1,
+          "x": 133.3,
+          "y": 372
+        },
+        {
+          "name": "Common Cold",
+          "thing": [
+            "Runny/stuffy nose",
+            "Sore throat",
+            "Fever",
+            "Body aches",
+            "Fatigue"
+          ],
+          "rank": 2,
+          "y": 372,
+          "x": 266.6
+        },
+        {
+          "name": "Common Allergies",
+          "thing": [
+            "Runny/stuffy nose",
+            "Watery eyes",
+            "Shortness of breath"
+          ],
+          "rank": 3,
+          "y": 372,
+          "x": 400
+        },
+        {
+          "name": "Flu",
+          "thing": [
+            "Fever",
+            "Runny/stuffy nose",
+            "Sore throat",
+            "vomiting",
+            "Nausea",
+            "Body aches",
+            "Fatigue"
+          ],
+          "rank": 4,
+          "y": 372,
+          "x": 533.3
+        },
+        {
+          "name": "Food borne illness",
+          "thing": [
+            "Vomiting",
+            "Diarrhea",
+            "Body aches",
+            "Nausea"
+          ],
+          "rank": 5,
+          "y": 372,
+          "x": 666.6
+        },
+        {
+          "name": "Ear Infection",
+          "thing": [
+            "Ear pain",
+            "Fever",
+            "Trouble hearing",
+            "Fatigue"
+          ],
+          "rank": 6,
+          "y": 372,
+          "x": 800
+        },
+        {
+          "name": "Asthma",
+          "thing": [
+            "Shortness of breath",
+            "Wheezing",
+            "Chest tightness"
+          ],
+          "rank": 7,
+          "y": 372,
+          "x": 933.3
+        },
+        {
+          "name": "Migraine",
+          "thing": [
+            "Throbbing head ache",
+            "Nausea",
+            "Sensitivity to light",
+            "Changes to vision"
+          ],
+          "rank": 8,
+          "y": 372,
+          "x": 1066.6
+        },
+        {
+          "name": "Sinus Infection",
+          "thing": [
+            "Runny/stuffy nose",
+            "Fatigue",
+            "Fever"
+          ],
+          "rank": 9,
+          "y": 372,
+          "x": 1200
+        },
+        {
+          "name": "Vomiting",
+          "thing": [
+            "Food borne illness",
+            "Flu"
+          ],
+          "rank": 1,
+          "y": 186,
+          "x": 60
+        },
+        {
+          "name": "Fever",
+          "thing": [
+            "Common Cold",
+            "Flu",
+            "Ear infection",
+            "Sinus Infection"
+          ],
+          "rank": 2,
+          "y": 186,
+          "x": 120
+        },
+        {
+          "name": "Nausea",
+          "thing": [
+            "Migraine",
+            "Flu",
+            "Food borne illness"
+          ],
+          "rank": 3,
+          "y": 186,
+          "x": 180
+        },
+        {
+          "name": "Fatigue",
+          "thing": [
+            "Common Cold",
+            "Flu",
+            "Ear infection",
+            "Sinus Infection"
+          ],
+          "rank": 4,
+          "y": 186,
+          "x": 240
+        },
+        {
+          "name": "Runny/stuffy nose",
+          "thing": [
+            "Sinus Infection",
+            "Flu",
+            "Common Allergies",
+            "Common Cold"
+          ],
+          "rank": 5,
+          "y": 186,
+          "x": 300
+        },
+        {
+          "name": "Body aches",
+          "thing": [
+            "Food borne illness",
+            "Flu",
+            "Common Cold"
+          ],
+          "rank": 6,
+          "y": 186,
+          "x": 360
+        },
+        {
+          "name": "Shortness of breath",
+          "thing": [
+            "Asthma",
+            "Common Allergies"
+          ],
+          "rank": 7,
+          "y": 186,
+          "x": 420
+        },
+        {
+          "name": "Wheezing",
+          "thing": [
+            "Asthma",
+            "Common Allergies"
+          ],
+          "rank": 8,
+          "y": 186,
+          "x": 480
+        },
+        {
+          "name": "Sensitivity to light",
+          "thing": [
+            "Migraine"
+          ],
+          "rank": 9,
+          "y": 186,
+          "x": 540
+        },
+        {
+          "name": "Throbbing head ache",
+          "thing": [
+            "Migraine"
+          ],
+          "rank": 10,
+          "y": 186,
+          "x": 600
+        },
+        {
+          "name": "Chest tightness",
+          "thing": [
+            "Asthma"
+          ],
+          "rank": 11,
+          "y": 186,
+          "x": 660
+        },
+        {
+          "name": "Trouble hearing",
+          "thing": [
+            "Ear Infection"
+          ],
+          "rank": 12,
+          "y": 186,
+          "x": 720
+        },
+        {
+          "name": "Ear pain",
+          "thing": [
+            "Ear Infection"
+          ],
+          "rank": 13,
+          "y": 186,
+          "x": 780
+        },
+        {
+          "name": "Diarrhea",
+          "thing": [
+            "Food borne illness"
+          ],
+          "rank": 14,
+          "y": 186,
+          "x": 840
+        },
+        {
+          "name": "Sore throat",
+          "thing": [
+            "Common Cold",
+            "Flu"
+          ],
+          "rank": 15,
+          "y": 186,
+          "x": 900
+        },
+        {
+          "name": "Watery eyes",
+          "thing": [
+            "Common Allergies"
+          ],
+          "rank": 16,
+          "y": 186,
+          "x": 960
+        },
+        {
+          "name": "Side or Back pain",
+          "thing": [
+            "UTI"
+          ],
+          "rank": 17,
+          "y": 186,
+          "x": 1020
+        },
+        {
+          "name": "Frequent Urination",
+          "thing": [
+            "UTI"
+          ],
+          "rank": 18,
+          "y": 186,
+          "x": 1080
+        },
+        {
+          "name": "Pain during urination",
+          "thing": [
+            "UTI"
+          ],
+          "rank": 19,
+          "y": 186,
+          "x": 1140
+        },
+        {
+          "name": "Changes to vision",
+          "thing": [
+            "Migraine"
+          ],
+          "rank": 20,
+          "y": 186,
+          "x": 1200
+        }
+      ],
+      "transform": [{
+        "type": "voronoi", "x": "x", "y": "y"
+      }]
+    },
+    {
+      "name": "routes_maladies",
+      "source": "maladies",
+      "transform": [
+        {
+          "type": "filter",
+          "expr": "hover && hover.illness == datum.illness"
+        },
+        {
+          "type": "lookup",
+          "from": "joined", "key": "thing",
+          "fields": ["illness","symptom"], "as": ["source", "target"]
+        },
+        {
+          "type": "filter",
+          "expr": "datum.source && datum.target"
+        },
+        {
+          "type": "linkpath",
+          "shape": "line"
+        }
+
+      ]
+    },
+    {
+      "name": "routes_symptoms",
+      "source": "symptoms",
+      "transform": [
+        {
+          "type": "filter",
+          "expr": "hover && hover.symptom == datum.symptom"
+        },
+        {
+          "type": "lookup",
+          "from": "joined", "key": "thing",
+          "fields": ["illness", "symptoms"], "as": ["source", "target"]
+        },
+        {
+          "type": "filter",
+          "expr": "datum.source && datum.target"
+        },
+        {
+          "type": "linkpath",
+          "shape": "line"
+        }
+      ]
+    }
+  ],
+
+  "scales": [
+    {
+      "name": "x_scale1",
+      "domain": [0,9],
+      "range": "width"
+
+  },
+    {
+      "name": "x_scale2",
+      "domain": [0,20],
+      "range": "width"
+
+    }
+
+
+  ],
+
+  "signals": [
+    {
+      "name": "hover",
+      "value": null,
+      "on": [
+        {"events": "@cell:mouseover", "update": "datum"},
+        {"events": "@cell:mouseout", "update": "null"}
+      ]
+    }
+  ],
+
+
+
+  "marks": [
+    {
+      "type": "symbol",
+      "from": {
+        "data": "maladies"
+      },
+
+      "encode": {
+
+
+
+      "enter": {
+        "x": {
+          "scale": "x_scale1",
+          "field": "rank"
+        },
+        "y": {
+          "field": "y"
+        },
+        "fill": {
+          "value": "steelblue"
+        },
+        "fillOpacity": {
+          "value": 0.8
+        },
+        "stroke": {
+          "value": "white"
+        },
+        "strokeWidth": {
+          "value": 1.5
+        },
+        "size": {"value": 5500}
+      }
+      }
+    },
+    {
+      "type": "path",
+      "name": "cell",
+      "from": {"data": "joined"},
+      "encode": {
+        "enter": {
+          "fill": {"value": "transparent"},
+          "strokeWidth": {"value": 0.35}
+        },
+        "update": {
+          "path": {"field": "path"},
+          "stroke": {"value": "black"}
+        }
+      }
+    },
+
+    {
+      "type": "symbol",
+      "from": {"data": "symptoms"},
+      "encode": {
+        "enter": {
+          "x": {"scale": "x_scale2","field": "rank"},
+          "y": {
+            "field": "y"
+          },
+          "fill": {"value": "steelblue"},
+          "fillOpacity": {"value": 0.8},
+          "stroke": {"value": "white"},
+          "strokeWidth": {"value": 1.5},
+          "size": {"value": 3000}
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": {
+        "data": "maladies"
+      },
+      "encode": {
+        "enter": {
+          "fill": {
+            "value": "black"
+          },
+          "fontSize": {
+            "value": 11
+          },
+          "align": {
+            "value": "center"
+          },
+          "text": {
+            "field": "illness"
+          },
+          "x": {
+            "scale": "x_scale1",
+            "field": "rank"
+          },
+          "y": {
+            "field": "y"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": {
+        "data": "symptoms"
+      },
+      "encode": {
+        "enter": {
+          "fill": {
+            "value": "black"
+          },
+          "fontSize": {
+            "value": 7
+          },
+          "align": {
+            "value": "center"
+          },
+          "text": {
+            "field": "symptom"
+          },
+            "x": {"scale": "x_scale2","field": "rank"},
+          "y": {
+            "field": "y"
+          }
+        }
+      }
+    },
+    {
+      "type": "path",
+      "interactive": false,
+      "from": {"data": "routes_maladies"},
+      "encode": {
+        "enter": {
+          "path": {"field": "path"},
+          "stroke": {"value": "black"},
+          "strokeOpacity": {"value": 0.35}
+        }
+      }
+    }
+    
+  ]
+}

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Network Assignment</title>
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@5"></script>
+</head>
+<body>
+<div id="Network"></div>
+<script>
+    const Network = "Network.json";
+    vegaEmbed("#Network", Network)
+        .then(result => console.log(result))
+        .catch(console.warn);
+</script>
+</body>
+</html>
