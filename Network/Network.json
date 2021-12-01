@@ -644,16 +644,16 @@
     },
     {
       "name": "routes_maladies",
-      "source": "maladies",
+      "source": "joined",
       "transform": [
         {
           "type": "filter",
-          "expr": "hover && hover.illness == datum.illness"
+          "expr": "hover && hover.name == datum.name"
         },
         {
           "type": "lookup",
           "from": "joined", "key": "thing",
-          "fields": ["illness","symptom"], "as": ["source", "target"]
+          "fields": ["name","thing"], "as": ["target","source"]
         },
         {
           "type": "filter",
@@ -661,23 +661,24 @@
         },
         {
           "type": "linkpath",
-          "shape": "line"
+          "shape": "line",
+          "as": "path"
         }
 
       ]
     },
     {
       "name": "routes_symptoms",
-      "source": "symptoms",
+      "source": "joined",
       "transform": [
         {
           "type": "filter",
-          "expr": "hover && hover.symptom == datum.symptom"
+          "expr": "hover && hover.name == datum.name"
         },
         {
           "type": "lookup",
           "from": "joined", "key": "thing",
-          "fields": ["illness", "symptoms"], "as": ["source", "target"]
+          "fields": ["thing","name"], "as": ["target","source"]
         },
         {
           "type": "filter",
@@ -685,8 +686,10 @@
         },
         {
           "type": "linkpath",
-          "shape": "line"
+          "shape": "line",
+          "as": "path"
         }
+
       ]
     }
   ],
@@ -767,7 +770,7 @@
         },
         "update": {
           "path": {"field": "path"},
-          "stroke": {"value": "black"}
+          "stroke": {"value": null}
         }
       }
     },
@@ -849,7 +852,19 @@
       "interactive": false,
       "from": {"data": "routes_maladies"},
       "encode": {
-        "enter": {
+        "update": {
+          "path": {"field": "path"},
+          "stroke": {"value": "black"},
+          "strokeOpacity": {"value": 0.35}
+        }
+      }
+    },
+    {
+      "type": "path",
+      "interactive": false,
+      "from": {"data": "routes_symptoms"},
+      "encode": {
+        "update": {
           "path": {"field": "path"},
           "stroke": {"value": "black"},
           "strokeOpacity": {"value": 0.35}
