@@ -14,6 +14,7 @@
 <p>I created this dataset, it can be found in the Network.json file on my GitHub.</p>
 <script>
     const Network = "Network.json";
+    Network.valueOf()
     vegaEmbed("#Network", Network)
         .then(result => console.log(result))
         .catch(console.warn);
