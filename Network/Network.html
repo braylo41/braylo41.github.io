@@ -10,9 +10,11 @@
 <div id="Network"></div>
 <script>
     const Network = "Network.json";
+    Network.valueOf()
     vegaEmbed("#Network", Network)
         .then(result => console.log(result))
         .catch(console.warn);
+
 </script>
 </body>
 </html>
