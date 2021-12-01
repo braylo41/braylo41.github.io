@@ -116,10 +116,7 @@
           "y": 372,
           "x": 1200
         }
-      ],
-      "transform": [{
-        "type": "voronoi", "x": "x", "y": "y"
-      }]
+      ]
     },
     {
       "name": "symptoms",
@@ -321,14 +318,10 @@
           "y": 186,
           "x": 1200
         }
-      ],
-      "transform": [{
-        "type": "voronoi", "x": "x", "y": "y"
-      }]
+      ]
     },
     
-    
-    
+
     {
       "name": "joined",
       "values": [
@@ -639,6 +632,10 @@
         }
       ],
       "transform": [{
+        "type":"flatten",
+        "fields": ["thing"]
+
+      },{
         "type": "voronoi", "x": "x", "y": "y"
       }]
     },
@@ -652,7 +649,7 @@
         },
         {
           "type": "lookup",
-          "from": "joined", "key": "thing",
+          "from": "joined", "key": "name",
           "fields": ["name","thing"], "as": ["target","source"]
         },
         {
@@ -662,32 +659,7 @@
         {
           "type": "linkpath",
           "shape": "line",
-          "as": "path"
-        }
-
-      ]
-    },
-    {
-      "name": "routes_symptoms",
-      "source": "joined",
-      "transform": [
-        {
-          "type": "filter",
-          "expr": "hover && hover.name == datum.name"
-        },
-        {
-          "type": "lookup",
-          "from": "joined", "key": "thing",
-          "fields": ["thing","name"], "as": ["target","source"]
-        },
-        {
-          "type": "filter",
-          "expr": "datum.source && datum.target"
-        },
-        {
-          "type": "linkpath",
-          "shape": "line",
-          "as": "path"
+          "as": "path1"
         }
 
       ]
@@ -726,54 +698,36 @@
 
   "marks": [
     {
+    "type": "path",
+    "interactive": false,
+    "from": {"data": "routes_maladies"},
+    "encode": {
+      "update": {
+        "path": {"field": "path1"},
+        "stroke": {"value": "black"},
+        "strokeOpacity": {"value": 0.35}
+      }
+    }
+  },
+
+    {
       "type": "symbol",
       "from": {
         "data": "maladies"
       },
-
-      "encode": {
-
-
-
-      "enter": {
-        "x": {
-          "scale": "x_scale1",
-          "field": "rank"
-        },
-        "y": {
-          "field": "y"
-        },
-        "fill": {
-          "value": "steelblue"
-        },
-        "fillOpacity": {
-          "value": 0.8
-        },
-        "stroke": {
-          "value": "white"
-        },
-        "strokeWidth": {
-          "value": 1.5
-        },
-        "size": {"value": 5500}
-      }
-      }
-    },
-    {
-      "type": "path",
-      "name": "cell",
-      "from": {"data": "joined"},
       "encode": {
         "enter": {
-          "fill": {"value": "transparent"},
-          "strokeWidth": {"value": 0.35}
-        },
-        "update": {
-          "path": {"field": "path"},
-          "stroke": {"value": null}
+              "x": {"scale": "x_scale1", "field": "rank"},
+              "y": {"field": "y"},
+              "fill": {"value": "steelblue"},
+              "fillOpacity": {"value": 0.8},
+              "stroke": {"value": "white"},
+              "strokeWidth": {"value": 1.5},
+            "size": {"value": 5500}
         }
       }
     },
+
 
     {
       "type": "symbol",
@@ -849,28 +803,20 @@
     },
     {
       "type": "path",
-      "interactive": false,
-      "from": {"data": "routes_maladies"},
+      "name": "cell",
+      "from": {"data": "joined"},
       "encode": {
+        "enter": {
+          "fill": {"value": "transparent"},
+          "strokeWidth": {"value": 0.35}
+        },
         "update": {
           "path": {"field": "path"},
-          "stroke": {"value": "black"},
-          "strokeOpacity": {"value": 0.35}
-        }
-      }
-    },
-    {
-      "type": "path",
-      "interactive": false,
-      "from": {"data": "routes_symptoms"},
-      "encode": {
-        "update": {
-          "path": {"field": "path"},
-          "stroke": {"value": "black"},
-          "strokeOpacity": {"value": 0.35}
+          "stroke": {"value": null}
         }
       }
     }
+
     
   ]
 }

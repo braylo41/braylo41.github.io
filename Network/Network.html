@@ -7,12 +7,17 @@
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@5"></script>
 </head>
 <body>
+<p>Interactive network graph of common illnesses and their associated symptoms</p>
 <div id="Network"></div>
+<p>This visualization is interactive. Hover over the nodes to see their associated attributes. The Linkpath took a long time to get working, at first it would only work for some of the Illness nodes of which they would only show one relationship. It finally worked after I flattened the data set.
+    Words of wisdom, vega does not like to compare arrays.</p>
+<p>I created this dataset, it can be found in the Network.json file on my GitHub.</p>
 <script>
     const Network = "Network.json";
     vegaEmbed("#Network", Network)
         .then(result => console.log(result))
         .catch(console.warn);
+
 </script>
 </body>
 </html>
